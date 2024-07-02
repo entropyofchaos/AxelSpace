@@ -1,6 +1,5 @@
-﻿# CMakeList.txt : CMake project for AxelSpace, include source and define
-# project specific logic here.
-#
+﻿# CMakeList.txt : CMake project for AxelSpace
+
 cmake_minimum_required (VERSION 3.8)
 
 # Enable Hot Reload for MSVC compilers if supported.
@@ -14,16 +13,10 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-project ("AxelSpace")
-
-file(GLOB_RECURSE SOURCES "src/*.cpp" "include/*.h")
-
-add_library (TelemetryParser ${SOURCES})
-
-# Specify include directories for the target
-target_include_directories(TelemetryParser PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-
 # Enable testing with CTest
 enable_testing()
 
-add_subdirectory(tests)
+add_subdirectory(Part1)
+add_subdirectory(Part2)
+
+
