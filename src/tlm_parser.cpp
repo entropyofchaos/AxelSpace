@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <bit>
+#include <cstring>
 #include <span>
 
 Parser::Parser() :

@@ -24,6 +24,10 @@ static std::vector<uint8_t> createSecondaryHeader(uint8_t protocolVersion, uint8
 // Function to construct a complete packet
 static std::vector<uint8_t> constructPacket(const std::vector<uint8_t>& secondaryHeader, float payload) {
     std::vector<uint8_t> packet = { 0xAB, 0xBA, 0xCF, 0xFC }; // Magic header
+    
+    // Note, if you see a warning from this line, it is related to a GCC bug that
+    // is supposed to be fixed in in gcc-11.5
+    // https://gcc.gnu.org/bugzilla/show_bug.cgi?id=100366
     packet.insert(packet.end(), secondaryHeader.begin(), secondaryHeader.end());
 
     // Add payload
