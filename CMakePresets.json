@@ -1,0 +1,134 @@
+﻿{
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "windows-base",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "installDir": "${sourceDir}/out/install/${presetName}",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "cl.exe",
+                "CMAKE_CXX_COMPILER": "cl.exe"
+            },
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "linux-base",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "installDir": "${sourceDir}/out/install/${presetName}",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "/usr/bin/gcc",
+                "CMAKE_CXX_COMPILER": "/usr/bin/g++"
+            },
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Linux"
+            }
+        },
+        {
+            "name": "x64-debug",
+            "displayName": "x64 Debug",
+            "inherits": ["windows-base", "linux-base"],
+            "architecture": {
+                "value": "x64",
+                "strategy": "external"
+            },
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "x64-release",
+            "displayName": "x64 Release",
+            "inherits": "x64-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "x86-debug",
+            "displayName": "x86 Debug",
+            "inherits": ["windows-base", "linux-base"],
+            "architecture": {
+                "value": "x86",
+                "strategy": "external"
+            },
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "x86-release",
+            "displayName": "x86 Release",
+            "inherits": "x86-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "x64-debug",
+            "displayName": "x64 Debug",
+            "configurePreset": "x64-debug",
+            "description": "Build using the x64-debug configuration preset",
+            "targets": ["all"],
+            "configuration": "Debug",
+            "cleanFirst": true,
+            "verbose": true
+        },
+        {
+            "name": "x64-release",
+            "displayName": "x64 Release",
+            "configurePreset": "x64-release",
+            "description": "Build using the x64-release configuration preset",
+            "targets": ["all"],
+            "configuration": "Release",
+            "cleanFirst": true,
+            "verbose": true
+        },
+        {
+            "name": "x86-debug",
+            "displayName": "x86 Debug",
+            "configurePreset": "x86-debug",
+            "description": "Build using the x86-debug configuration preset",
+            "targets": ["all"],
+            "configuration": "Debug",
+            "cleanFirst": true,
+            "verbose": true
+        },
+        {
+            "name": "x86-release",
+            "displayName": "x86 Release",
+            "configurePreset": "x86-release",
+            "description": "Build using the x86-release configuration preset",
+            "targets": ["all"],
+            "configuration": "Release",
+            "cleanFirst": true,
+            "verbose": true
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "x64-release-test",
+            "description": "Default test configuration",
+            "configurePreset": "x64-release",
+            "output": {
+                "outputOnFailure": true,
+                "verbosity": "verbose"
+            },
+            "execution": {
+                "noTestsAction": "error",
+                "stopOnFailure": true
+            }
+        }
+    ]
+}
