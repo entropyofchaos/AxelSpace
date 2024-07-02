@@ -88,7 +88,7 @@ The following project looks to address the requriements of the Embedded Software
 - **Cleaning the Build**:
   - To clean the build files, run the following command from the project's root directory:
     ```sh
-    rm -rf out
+    rm -r out
     ```
 
 - **License**:
