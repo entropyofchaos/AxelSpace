@@ -21,7 +21,7 @@ The following project looks to address the requriements of the Embedded Software
 ### Windows
 
 1. **Open a Command Line**
-    - Open a `Developer Command Prompt for VS 2019` or `Developer Command Prompt VS 2022` and navigate to the project's root directory. It should be easily searchable Windows Start Menu.
+    - Open a `Developer PowerShell for VS 2019` or `Developer PowerShell VS 2022` and navigate to the project's root directory. It should be easily searchable Windows Start Menu.
 
 2. **Generate Build Files**:
     - Run the following command to generate the build files:
@@ -60,7 +60,7 @@ The following project looks to address the requriements of the Embedded Software
 ### Windows
 
 1. **Open a Command Line**
-    - Open a `Developer Command Prompt for VS 2019` or `Developer Command Prompt VS 2022` and navigate to the project's root directory. It should be easily searchable Windows Start Menu.
+    - Open a `Developer PowerShell for VS 2019` or `Developer PowerShell VS 2022` and navigate to the project's root directory. It should be easily searchable Windows Start Menu.
 
 2. **Generate Build Files**:
     - Run the following command to generate the build files:
